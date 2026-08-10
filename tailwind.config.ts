@@ -13,6 +13,14 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Manrope", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["DM Mono", "ui-monospace", "SFMono-Regular", "monospace"],
+      },
+      boxShadow: {
+        "soft-lift": "0 14px 30px rgba(26, 40, 84, 0.08)",
+        "button-lift": "0 7px 18px rgba(49, 89, 216, 0.16)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
