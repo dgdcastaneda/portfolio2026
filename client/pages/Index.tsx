@@ -66,7 +66,7 @@ const projects: Project[] = [
     ],
     accessibility:
       "Built keyboard-friendly controls, visible focus states, clear heading hierarchy, and contrast-safe color combinations.",
-    tools: ["Figma", "FigJam", "Builder.io", "HTML/CSS"],
+    tools: ["Sketch", "Builder.io", "HTML/CSS"],
   },
 {
     id: "fintech",
@@ -93,7 +93,7 @@ const projects: Project[] = [
     ],
     accessibility:
       "Applied accessible color contrast, non-color status cues, contextual validation, consistent focus behavior, and progressive disclosure across complex workflows.",
-    tools: ["Figma", "PrimeNG", "Chart.js", "Token Studio"],
+    tools: ["Figma", "Builder.io", "PrimeNG", "Chart.js", "Token Studio"],
   },
   {
     id: "telecom",
@@ -330,10 +330,54 @@ export default function Index() {
         <section className="work-section container section-space" id="work" aria-labelledby="work-title">
           <div className="section-heading"><div><p className="eyebrow">Selected work</p><h2 id="work-title">Products that move<br /><em>people forward.</em></h2></div><p className="section-intro">A selection of enterprise and fintech work where design meets systems thinking, business goals, and real-world constraints.</p></div>
           <div className="project-grid">
-            {projects.map((project) => <article className="project-card" key={project.id}>
-              <button className={`project-visual project-visual-${project.accent}`} onClick={(event) => openProject(project, event)} aria-label={`Open case study: ${project.title}`}><ProjectVisual project={project} /></button>
-              <div className="project-info"><div className="project-index">{project.number} <span>{project.product}</span></div><h3>{project.title}</h3><p>{project.summary}</p><div className="project-live-link">{project.id === "auction" && <a href="https://auction.biddingforgood.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit BiddingForGood live site">Visit live site <ExternalLink size={14} /></a>}</div><div className="project-foot"><span>{project.role}</span><div className="project-foot-actions"><button onClick={(event) => openProject(project, event)} aria-label={`Read ${project.title} case study`}>Read case study <ArrowUpRight size={15} /></button></div></div><div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>
-            </article>)}
+            {projects.map((project) => (
+              <article className="project-card" key={project.id}>
+                <button
+                  className={`project-visual project-visual-${project.accent}`}
+                  onClick={(event) => openProject(project, event)}
+                  aria-label={`Open case study: ${project.title}`}
+                >
+                  <ProjectVisual project={project} />
+                </button>
+                <div className="project-info">
+                  <div className="project-index">
+                    <span className="project-index-number">{project.number}</span>
+                    <span className="project-index-product">{project.product}</span>
+                    <span className="project-index-mobile-title">{project.title}</span>
+                  </div>
+                  <h3>{project.title}</h3>
+                  <p>{project.summary}</p>
+                  <div className="project-live-link">
+                    {project.id === "auction" && (
+                      <a
+                        href="https://auction.biddingforgood.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Visit BiddingForGood live site"
+                      >
+                        Visit live site <ExternalLink size={14} />
+                      </a>
+                    )}
+                  </div>
+                  <div className="project-foot">
+                    <span>{project.role}</span>
+                    <div className="project-foot-actions">
+                      <button
+                        onClick={(event) => openProject(project, event)}
+                        aria-label={`Read ${project.title} case study`}
+                      >
+                        Read case study <ArrowUpRight size={15} />
+                      </button>
+                    </div>
+                  </div>
+                  <div className="tag-row">
+                    {project.tags.map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -343,7 +387,7 @@ export default function Index() {
 
         <section className="experience-section container section-space" id="experience" aria-labelledby="experience-title"><div className="section-heading section-heading-compact"><div><p className="eyebrow">Experience</p><h2 id="experience-title">A track record of<br /><em>making progress.</em></h2></div><p className="section-intro">Partnering with product and engineering teams from discovery to implementation.</p></div><div className="experience-list"><article className="experience-item"><div className="experience-date">2022 — now</div><div><p className="experience-role">Senior Product Designer <span>·</span> Viaro Networks / Frontstream</p><p>Leading the modernization of fintech and auction software, with a focus on operational workflows, design systems, and accessible patterns.</p><div className="experience-tags"><span>Software modernization</span><span>Fintech workflows</span><span>Cross-functional</span></div></div><ArrowUpRight size={19} /></article><article className="experience-item"><div className="experience-date">2020 — 2022</div><div><p className="experience-role">UX/UI Design Analyst <span>·</span> Global Hitss</p><p>Redesigned operational modules for an enterprise telecommunications platform through research, information architecture, prototyping, and testing.</p><div className="experience-tags"><span>Enterprise SaaS</span><span>Research-led</span></div></div><ArrowUpRight size={19} /></article></div></section>
 
-        <section className="about-section section-space" id="about" aria-labelledby="about-title"><div className="container about-layout"><div><p className="eyebrow">A little about me</p><h2 id="about-title">Designing with<br /><em>care and curiosity.</em></h2></div><div className="about-copy"><p>I’m a product designer based in Aguascalientes, Mexico. I love untangling complex workflows, asking the useful question, and making sure the final product works as well as it looks.</p><p>My best work happens in close collaboration with the people who build and use the product. That means an open process, clear decisions, and a healthy respect for the details.</p><div className="about-facts"><div><strong>Based in</strong><span>Aguascalientes, MX</span></div><div><strong>Languages</strong><span>Spanish · English B2</span></div><div><strong>Education</strong><span>Digital Graphic Design Engineering</span></div></div></div></div></section>
+        <section className="about-section section-space" id="about" aria-labelledby="about-title"><div className="container about-layout"><div><p className="eyebrow">A little about me</p><h2 id="about-title">Designing with<br /><em>care and curiosity.</em></h2></div><div className="about-copy"><p>I’m a product designer based in Aguascalientes, Mexico. I love untangling complex workflows, asking the useful question, and making sure the final product works as well as it looks.</p><p>My best work happens in close collaboration with the people who build and use the product. That means an open process, clear decisions, and a healthy respect for the details.</p><div className="about-facts"><div><strong>Based in</strong><span>Aguascalientes, MX</span></div><div><strong>Languages</strong><span>Spanish · English B2</span></div><div><strong>Education</strong><span>Digital Graphic Design Engineering</span><span>Google UX Certificate</span></div></div></div></div></section>
 
         <section className="contact-section container section-space" id="contact" aria-labelledby="contact-title"><div className="contact-card"><div><p className="eyebrow">Let’s work together</p><h2 id="contact-title">Have a complex<br /><em>problem to solve?</em></h2></div><div className="contact-cta"><p>I’m always open to thoughtful conversations about product, systems, and the work behind better experiences.</p><a className="contact-link" href="mailto:dg.dcastaneda@gmail.com">Say hello <ArrowUpRight size={18} /></a></div></div></section>
       </main>
