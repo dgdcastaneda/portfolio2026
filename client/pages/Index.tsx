@@ -151,6 +151,10 @@ function scrollToId(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 }
 
+function withBase(path: string) {
+  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+}
+
 function CaseStudyFrame({ src, alt }: { src: string; alt: string }) {
   return <img className="project-frame-image" src={src} alt={alt} loading="lazy" />;
 }
@@ -158,79 +162,79 @@ function CaseStudyFrame({ src, alt }: { src: string; alt: string }) {
 const projectFrames: Record<string, { src: string; alt: string }[]> = {
   auction: [
       {
-      src: "/BFG-Redesign/Auction%20Event%20Page%20(Design).jpg",
+      src: withBase("BFG-Redesign/Auction%20Event%20Page%20(Design).jpg"),
       alt: "BiddingForGood redesigned auction page",
     },
     {
-      src: "/BFG-Redesign/Auction%20Event%20Page%20(Before).png",
+      src: withBase("BFG-Redesign/Auction%20Event%20Page%20(Before).png"),
       alt: "BiddingForGood auction page before redesign",
     },
     {
-      src: "/BFG-Redesign/Auction%20Event%20Page%20(Ejemplo%20Real%20en%20Prod).png",
+      src: withBase("BFG-Redesign/Auction%20Event%20Page%20(Ejemplo%20Real%20en%20Prod).png"),
       alt: "BiddingForGood auction page in production",
     },
     {
-      src: "/BFG-Redesign/Auction%20Event%20Page-Customized%20(Desarrollo).png",
+      src: withBase("BFG-Redesign/Auction%20Event%20Page-Customized%20(Desarrollo).png"),
       alt: "BiddingForGood customized auction page in development",
     },
     {
-      src: "/BFG-Redesign/Auction%20Event%20Page-Customized%20(Mockup).jpg",
+      src: withBase("BFG-Redesign/Auction%20Event%20Page-Customized%20(Mockup).jpg"),
       alt: "BiddingForGood customized auction page mockup",
     },
     {
-      src: "/BFG-Redesign/Auction%20Manager%20(Customization%20Panel).jpg",
+      src: withBase("BFG-Redesign/Auction%20Manager%20(Customization%20Panel).jpg"),
       alt: "BiddingForGood auction manager customization panel",
     },
   ],
   fintech: [
     {
-      src: "/Fintech-Platform/Dashboard-Filter.jpg",
+      src: withBase("Fintech-Platform/Dashboard-Filter.jpg"),
       alt: "Fintech dashboard with filters",
     },
     {
-      src: "/Fintech-Platform/Dashboard-Filter-Transaction%20Details%20(drawer).jpg",
+      src: withBase("Fintech-Platform/Dashboard-Filter-Transaction%20Details%20(drawer).jpg"),
       alt: "Fintech dashboard transaction details drawer",
     },
     {
-      src: "/Fintech-Platform/Transaction%20Details%20-%20Successful%20Transaction.jpg",
+      src: withBase("Fintech-Platform/Transaction%20Details%20-%20Successful%20Transaction.jpg"),
       alt: "Fintech successful transaction details screen",
     },
     {
-      src: "/Fintech-Platform/Transactions/Charts%20View.jpg",
+      src: withBase("Fintech-Platform/Transactions/Charts%20View.jpg"),
       alt: "Fintech transactions chart view",
     },
     {
-      src: "/Fintech-Platform/Transactions/List%20View.jpg",
+      src: withBase("Fintech-Platform/Transactions/List%20View.jpg"),
       alt: "Fintech transactions list view",
     },
     {
-      src: "/Fintech-Platform/Create%20New%20Payment%20-.jpg",
+      src: withBase("Fintech-Platform/Create%20New%20Payment%20-.jpg"),
       alt: "Fintech create new payment start step",
     },
     {
-      src: "/Fintech-Platform/Create%20New%20Payment%20-%20Payment%20Details.jpg",
+      src: withBase("Fintech-Platform/Create%20New%20Payment%20-%20Payment%20Details.jpg"),
       alt: "Fintech create new payment details step",
     },
     {
-      src: "/Fintech-Platform/Create%20New%20Payment%20-%20Payment%20Details%20(Sale).jpg",
+      src: withBase("Fintech-Platform/Create%20New%20Payment%20-%20Payment%20Details%20(Sale).jpg"),
       alt: "Fintech create payment details for sale",
     }
   ],
   telecom: [
     {
-      src: "/PUCC/Modulo%20Operativo%20-%20Login.jpg",
+      src: withBase("PUCC/Modulo%20Operativo%20-%20Login.jpg"),
       alt: "Connected Operations login screen",
     },
     {
-      src: "/PUCC/Modulo%20Operativo%20-%20Inicio.jpg",
+      src: withBase("PUCC/Modulo%20Operativo%20-%20Inicio.jpg"),
       alt: "Connected Operations home module screen",
     },
     {
-      src: "/PUCC/Modulo%20Operativo%20-%20Lista%20de%20Servicios.jpg",
+      src: withBase("PUCC/Modulo%20Operativo%20-%20Lista%20de%20Servicios.jpg"),
       alt: "Connected Operations service list module",
     },
     {
-      src: "/PUCC/Incidente%20-%20tipificacion.jpg",
+      src: withBase("PUCC/Incidente%20-%20tipificacion.jpg"),
       alt: "Connected Operations incident classification screen",
     },
   ],
@@ -278,7 +282,7 @@ export default function Index() {
 
   const downloadCv = () => {
     const anchor = document.createElement("a");
-    anchor.href = "/Dinorah%27s%20Resume%202026.pdf";
+    anchor.href = withBase("Dinorah%27s%20Resume%202026.pdf");
     anchor.download = "Dinorah-Resume-2026.pdf";
     anchor.click();
   };
